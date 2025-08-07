@@ -1,14 +1,30 @@
-import { useAuthActions } from "../../hooks/use-auth-actions"
+import CardFooterAuth from "@/components/cardFooterAuth";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  CardFooter,
+  CardAction,
+} from "@/components/ui/card";
+import { useAuthActions } from "@/hooks/use-auth-actions";
 
 const Loginpage = () => {
-
-
-  //import hooks 
-  const {loginWithGoole} = useAuthActions()
+  const { loading } = useAuthActions();
 
   return (
-    <div>Loginpage</div>
-  )
-}
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-center text-xl font-bold">Login</CardTitle>
+        <CardDescription>
+          Login to your account using email and password or with Google.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>....</CardContent>
+      <CardFooterAuth type="Login" loading={loading} />
+    </Card>
+  );
+};
 
-export default Loginpage
+export default Loginpage;
