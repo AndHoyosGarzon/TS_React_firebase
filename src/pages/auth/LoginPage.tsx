@@ -9,9 +9,24 @@ import {
   CardAction,
 } from "@/components/ui/card";
 import { useAuthActions } from "@/hooks/use-auth-actions";
+//import react hook form
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { loginZodSchema, type LoginZodSchema } from "@/lib/zodSchema";
 
 const Loginpage = () => {
   const { loading } = useAuthActions();
+
+  const form = useForm<LoginZodSchema>({
+    resolver: zodResolver(loginZodSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  
+  //tipamos la data que recibira desde login schema
+  const onSubmit = (data: LoginZodSchema) => {};
 
   return (
     <Card>
