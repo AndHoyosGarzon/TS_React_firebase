@@ -1,4 +1,4 @@
-import z, { email } from "zod";
+import z from "zod";
 
 //login schema
 export const loginZodSchema = z.object({
@@ -25,4 +25,4 @@ export const registerSchema = z
   });
 
 //esto nos permite inferir en el tipo de dato basado en el schema de register schema
-export type RegisterZodSchemaType = z.infer<typeof resgiterSchema>;
+export type RegisterZodSchemaType = z.infer<typeof registerSchema>;
