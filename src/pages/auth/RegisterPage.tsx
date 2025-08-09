@@ -1,11 +1,24 @@
+import CardFooterAuth from "@/components/cardFooterAuth";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAuthActions } from "@/hooks/use-auth-actions";
+
 const RegisterPage = () => {
+
+
+  //hook
+  const {loading} = useAuthActions()
+
   return (
-    <div className="flex flex-col gap-20 items-center justify-center h-screen">
-      <h1>Register</h1>
-      <button className="btn btn-lg bg-red-700/50 hover:bg-red-600/20">
-        Sign In Google
-      </button>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-center text-xl font-bold">Register</CardTitle>
+        <CardDescription>
+          Register to your account using email and password or with Google.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>....</CardContent>
+      <CardFooterAuth type="Register" loading={loading} />
+    </Card>
   );
 };
 
