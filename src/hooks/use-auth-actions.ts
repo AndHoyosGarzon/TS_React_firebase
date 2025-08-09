@@ -28,10 +28,11 @@ export const useAuthActions = () => {
   //2 creamos el login
   const login = async (data: {
     email: string;
-    password: string;
+    password: string; //tipamos el tipo de accion en este caso es una promesa
   }): Promise<AuthActionResponse> => {
     setLoading(true);
     try {
+      //utilizamos el metodo de google
       await signInWithEmailAndPassword(auth, data.email, data.password);
       return {
         success: true,
@@ -67,6 +68,9 @@ export const useAuthActions = () => {
         await updateProfile(currentUser.user, {
           displayName: data.displayName,
         });
+
+        //forzamos una recarga nuevamente del usuario para poder cargar sus datos en el frontend
+        await currentUser.user.reload();
       }
 
       return {
