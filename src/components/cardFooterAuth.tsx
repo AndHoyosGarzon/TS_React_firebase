@@ -32,7 +32,7 @@ const CardFooterAuth = ({ type, loading }: Props) => {
         className="w-full"
         onClick={handleLoginWithGoogle}
         disabled={loading}
-        variant={"default"}
+        variant={"outline"}
       >
         <Mail className="mr-2" />
         {isLogin ? "Login with Google" : "Register with Google"}
