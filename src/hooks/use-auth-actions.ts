@@ -122,7 +122,6 @@ export const useAuthActions = () => {
       };
     } catch (error) {
       const authError = error as AuthError;
-
       return {
         success: false,
         error: authError,

@@ -49,7 +49,6 @@ const Loginpage = () => {
     if (!response.success) {
       if (response.error?.code === "auth/invalid-login-credentials") {
         toast.error("Invalid Email or Password");
-
         return;
       }
     }
