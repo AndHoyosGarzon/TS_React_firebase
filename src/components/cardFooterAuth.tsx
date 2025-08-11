@@ -22,7 +22,6 @@ const CardFooterAuth = ({ type, loading }: Props) => {
     if (result.success) {
       console.log("Login with google");
     } else {
-      console.log("error login with google");
       toast.error("Error login with google");
     }
   };
@@ -39,11 +38,11 @@ const CardFooterAuth = ({ type, loading }: Props) => {
       </Button>
 
       <p className="text-center text-sm text-muted-foreground">
-        {isLogin ? "Don't have an account? " : " Already have an account? "}
+        {isLogin ? "Don't have an account? " : " Already have an account?  "}
         <Link to={isLogin ? "/auth/register" : "/auth/login"}>
           <Button
             variant={"link"}
-            className="p-0 h-auto font-normal cursor-pointer"
+            className="p-0  h-auto font-normal cursor-pointer"
           >
             {isLogin ? "Register" : "Sign in"}
           </Button>

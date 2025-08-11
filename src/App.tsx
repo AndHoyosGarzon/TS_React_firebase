@@ -7,7 +7,7 @@ import HomePage from "./pages/public/HomePage";
 import DashboardPage from "./pages/admin/DashboardPage";
 import ProfilePage from "./pages/admin/ProfilePage";
 import ChatPage from "./pages/admin/ChatPage";
-import Loginpage from "./pages/auth/Loginpage";
+import Loginpage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import NotFound from "./pages/public/NotFound";
 

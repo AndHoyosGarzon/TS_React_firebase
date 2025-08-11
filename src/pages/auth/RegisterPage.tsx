@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useAuthActions } from "@/hooks/use-auth-actions";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -49,7 +48,7 @@ const RegisterPage = () => {
         console.error("registration error: ", response.error);
       }
     } else {
-      console.log("Registration successful", data);
+      console.log("Registration complete successfully", data);
     }
   };
 

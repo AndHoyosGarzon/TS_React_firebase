@@ -3,7 +3,7 @@ import { useSigninCheck } from "reactfire";
 
 const AuthLayout = () => {
   //hook react-fire trae infromacion importante sobre el acceso de los usuarios a la app
-  const { status, data: signIngCheckResult, hassEmitted } = useSigninCheck();
+  const { status, data: signIngCheckResult } = useSigninCheck();
 
   //mostrar un loading
   if (status === "loading") {
