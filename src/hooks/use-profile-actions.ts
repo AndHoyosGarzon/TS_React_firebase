@@ -1,6 +1,7 @@
 import { updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useUser } from "reactfire";
+
 export const useProfileActions = () => {
   //react
   const [loading, setLoading] = useState(false);
