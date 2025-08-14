@@ -1,15 +1,20 @@
 import { useAuthActions } from "@/hooks/use-auth-actions";
-import { LayoutDashboard, LogOut, MessageCircle, User } from "lucide-react";
+import {
+  LayoutDashboard,
+  LogOut,
+  MessageCircle,
+  User,
+  ClipboardCheck,
+} from "lucide-react";
 import { NavLink } from "react-router";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-
-
 
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { name: "Chat", href: "/admin/chat", icon: MessageCircle },
   { name: "Profile", href: "/admin/profile", icon: User },
+  { name: "Tasks", href: "/admin/tasks", icon: ClipboardCheck },
 ];
 
 const Navbar = () => {
@@ -26,7 +31,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               cn(
                 "text-gray-700 hover:text-blue-800 flex items-center gap-2",
-                  isActive ? "text-blue-800 font-bold" : "text-gray-700"
+                isActive ? "text-blue-800 font-bold" : "text-gray-700"
               )
             }
             end
