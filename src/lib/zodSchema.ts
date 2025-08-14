@@ -35,7 +35,7 @@ export const profileSchema = z.object({
     .string()
     .min(1, "Display name is required")
     .max(50, "Display name must be al most 50 characters long"),
-    photoUrl: z.url("Invalid url format").optional()
+    photoUrl: z.union([z.url("Invalid url format"), z.literal("")]).optional() 
 });
 
 

@@ -4,6 +4,8 @@ import { NavLink } from "react-router";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
+
+
 const navigation = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { name: "Chat", href: "/admin/chat", icon: MessageCircle },
@@ -24,7 +26,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               cn(
                 "text-gray-700 hover:text-blue-800 flex items-center gap-2",
-                isActive ? "text-blue-800 font-bold" : "text-gray-700"
+                  isActive ? "text-blue-800 font-bold" : "text-gray-700"
               )
             }
             end

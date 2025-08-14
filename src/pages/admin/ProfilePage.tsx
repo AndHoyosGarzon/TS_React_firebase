@@ -10,7 +10,7 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">Profile</h1>
+      <h1 className="text-2xl font-bold ">Profile</h1>
       <FormProfile user={user} />
     </div>
   );
