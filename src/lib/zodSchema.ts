@@ -35,8 +35,23 @@ export const profileSchema = z.object({
     .string()
     .min(1, "Display name is required")
     .max(50, "Display name must be al most 50 characters long"),
-    photoUrl: z.union([z.url("Invalid url format"), z.literal("")]).optional() 
+  photoUrl: z.union([z.url("Invalid url format"), z.literal("")]).optional(),
 });
 
+export type ProfileZodSchemaType = z.infer<typeof profileSchema>;
 
-export type ProfileZodSchemaType = z.infer<typeof profileSchema>
+//------------------------------------------------------------------------------------
+
+//Task Schema
+export const tasksSchema = z.object({
+  title: z
+    .string()
+    .min(1, "Title is required")
+    .max(100, "Title must be at most 100 characters long"),
+  description: z
+    .string()
+    .max(500, "Description must be at most 500 characters long")
+    .optional(),
+
+});
+export type TasksZodShemaType = z.infer<typeof tasksSchema>;

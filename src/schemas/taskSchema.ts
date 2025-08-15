@@ -3,7 +3,7 @@ export interface Task{
     id: string;
     title: string;
     description?:string;
-    completed:string;
+    completed:boolean;
     userId:string;
 }
 
