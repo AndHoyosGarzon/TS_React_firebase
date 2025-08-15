@@ -1,3 +1,4 @@
+import FormTasks from "@/components/tasks/FormTasks";
 import ListTask from "@/components/tasks/ListTask";
 import { Suspense } from "react";
 
@@ -5,6 +6,8 @@ const TasksPage = () => {
   return (
     <div>
       <h1 className="text-2xl text-center font-semibold">Tasks</h1>
+      <FormTasks />
+
       {/* aca llamamos a suspence */}
       <Suspense fallback={<div>Loading Tasks...</div>}></Suspense>
       <ListTask />
