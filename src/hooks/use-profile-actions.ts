@@ -1,10 +1,14 @@
 import { updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useUser } from "reactfire";
+import { useUserActions } from "./use-user-actions";
 
 export const useProfileActions = () => {
   //react
   const [loading, setLoading] = useState(false);
+
+  //taremos el hook de los usuarios para utilizarlo en el register
+  const { createUpdateUser } = useUserActions();
 
   //data firestore
   const { data: user } = useUser();
@@ -25,6 +29,9 @@ export const useProfileActions = () => {
         displayName: data.displayName || user.displayName,
         photoURL: data.photoUrl || user.photoURL,
       });
+
+      createUpdateUser({ ...user, ...data });
+
       return {
         success: true,
         error: null,

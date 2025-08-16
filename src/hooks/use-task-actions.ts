@@ -53,7 +53,7 @@ export const useTaskActions = () => {
     return await deleteDoc(taskDoc);
   };
 
-  //toggle update => este metodo nos permite actualizar una tarea
+  //update => este metodo nos permite actualizar una tarea
   const toggleTaskUpdate = async (taskId: string) => {
     const task = tasks.find((task) => task.id === taskId);
 
