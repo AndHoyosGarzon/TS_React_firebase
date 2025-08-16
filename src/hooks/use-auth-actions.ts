@@ -11,6 +11,7 @@ import type { AuthError } from "firebase/auth";
 
 import { useState } from "react";
 import { useAuth } from "reactfire";
+import { useUserActions } from "./use-user-actions";
 
 //create interface
 interface AuthActionResponse {
@@ -21,6 +22,9 @@ interface AuthActionResponse {
 export const useAuthActions = () => {
   //1 creamos un estado local
   const [loading, setLoading] = useState(false);
+
+  //taremos el hook de los usuarios para utilizarlo en el register
+  const {createUpdateUser} = useUserActions()
 
   //traemos el Auth
   const auth = useAuth();
@@ -69,10 +73,13 @@ export const useAuthActions = () => {
           displayName: data.displayName,
         });
 
+        //aca utilizamos el hook de los usuarios y enviamos la informacion
+        // para que se cree los datos en la base de datos de firestore cada vez que se registre
+        await createUpdateUser(currentUser.user)
+
         //forzamos una recarga nuevamente del usuario para poder cargar sus datos en el frontend
         await currentUser.user.reload();
       }
-
       return {
         success: true,
         error: null,
@@ -94,7 +101,10 @@ export const useAuthActions = () => {
     try {
       //utilizamos una nueva instancia del metodo GoogleAuthprovider
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      const data = await signInWithPopup(auth, provider);
+
+      //aca otra vez podemos utilizar los datos del usuario para crearlo en la base de datos de ser necesario
+      await createUpdateUser(data.user)
 
       return {
         success: true,
