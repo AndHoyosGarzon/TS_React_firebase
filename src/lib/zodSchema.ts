@@ -52,6 +52,13 @@ export const tasksSchema = z.object({
     .string()
     .max(500, "Description must be at most 500 characters long")
     .optional(),
-
 });
 export type TasksZodShemaType = z.infer<typeof tasksSchema>;
+
+//-------------------------------------------------------------------------------------
+
+//chat schema
+export const messagesSchema = z.object({
+  text: z.string().trim().min(1, "Please enter your message here...!"),
+});
+export type MessageZodSchemaType = z.infer<typeof messagesSchema>;
