@@ -8,8 +8,6 @@ const DashboardPage = () => {
   //hook
   const { logout } = useAuthActions();
 
-  console.log(user);
-
   return (
     <div>
       <h1 className="font-bold text-3xl">Dashoard Page</h1>

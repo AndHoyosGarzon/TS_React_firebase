@@ -11,7 +11,7 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
       <section className="bg-sky-300">
         {/* Mostrar las rooms */}
         <Suspense fallback={<div>Loading rooms here...</div>}>
@@ -22,7 +22,7 @@ const ChatPage = () => {
         {/* Mostrar los mensajes */}
         {roomId ? (
           <Suspense fallback={<div>Loading messages here...</div>}>
-            <FormMessageChat/>
+            <FormMessageChat roomId={roomId} />
             <MessagesChat roomId={roomId} />
           </Suspense>
         ) : (
