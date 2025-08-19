@@ -18,7 +18,7 @@ const ChatPage = () => {
           <ListRoomsChat handleClickRoomId={handleClickRoomId} />
         </Suspense>
       </section>
-      <section className="bg-blue-400 ">
+      <section className="bg-gray-600/40 overflow-y-scroll ">
         {/* Mostrar los mensajes */}
         {roomId ? (
           <Suspense fallback={<div>Loading messages here...</div>}>
