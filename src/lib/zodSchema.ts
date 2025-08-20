@@ -62,3 +62,12 @@ export const messagesSchema = z.object({
   text: z.string().trim().min(1, "Please enter your message here...!"),
 });
 export type MessageZodSchemaType = z.infer<typeof messagesSchema>;
+
+//--------------------------------------------------------------------------------------
+
+//schema form search user
+export const emailFriendSchema = z.object({
+  email: z.string().trim().pipe(z.email("Invalid format")),
+});
+
+export type EmailZodSchemaType = z.infer<typeof emailFriendSchema>;
