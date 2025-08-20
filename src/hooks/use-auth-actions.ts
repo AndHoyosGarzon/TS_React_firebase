@@ -24,7 +24,7 @@ export const useAuthActions = () => {
   const [loading, setLoading] = useState(false);
 
   //taremos el hook de los usuarios para utilizarlo en el register
-  const {createUpdateUser} = useUserActions()
+  const { createUpdateUser } = useUserActions();
 
   //traemos el Auth
   const auth = useAuth();
@@ -75,7 +75,7 @@ export const useAuthActions = () => {
 
         //aca utilizamos el hook de los usuarios y enviamos la informacion
         // para que se cree los datos en la base de datos de firestore cada vez que se registre
-        await createUpdateUser(currentUser.user)
+        await createUpdateUser(currentUser.user);
 
         //forzamos una recarga nuevamente del usuario para poder cargar sus datos en el frontend
         await currentUser.user.reload();
@@ -104,7 +104,7 @@ export const useAuthActions = () => {
       const data = await signInWithPopup(auth, provider);
 
       //aca otra vez podemos utilizar los datos del usuario para crearlo en la base de datos de ser necesario
-      await createUpdateUser(data.user)
+      await createUpdateUser(data.user);
 
       return {
         success: true,
@@ -126,6 +126,11 @@ export const useAuthActions = () => {
     setLoading(true);
     try {
       await signOut(auth);
+
+      //refrescamos el cache ya que de no ser asi queda la seccion del usuario anterior
+      // asi sea que ya hayamos hecho el logout
+      window.location.href = "/auth/login";
+
       return {
         success: true,
         error: null,
