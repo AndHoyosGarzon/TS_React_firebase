@@ -3,7 +3,7 @@ import type { FieldValue, Timestamp } from "firebase/firestore";
 // aca crearemos la extructura de las bases de datos
 export interface Room {
   id: string;
-  paticipants: string[];
+  participants: string[];
   createAt: Timestamp | FieldValue; // este fielvalue se usa por que cuando se hacen marcas de tiempo, automaticamente no retorna esta si no un fielvalue
   lastMessage: LastMessage | null;
 }

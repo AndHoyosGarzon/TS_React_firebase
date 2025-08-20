@@ -1,4 +1,5 @@
 import FormMessageChat from "@/components/chats/FormMessageChat";
+import FormSearchFriend from "@/components/chats/formSearchFriend";
 import ListRoomsChat from "@/components/chats/ListRoomsChat";
 import MessagesChat from "@/components/chats/MessagesChat";
 import { Suspense, useState } from "react";
@@ -11,10 +12,11 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
-      <section className="bg-sky-300">
+    <div className="grid grid-cols-1 md:grid-cols-2 h-screen gap-4">
+      <section className="space-y-4">
         {/* Mostrar las rooms */}
         <Suspense fallback={<div>Loading rooms here...</div>}>
+          <FormSearchFriend handleClickRoomId={handleClickRoomId}/>
           <ListRoomsChat handleClickRoomId={handleClickRoomId} />
         </Suspense>
       </section>
