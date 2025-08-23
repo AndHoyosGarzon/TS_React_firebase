@@ -1,12 +1,6 @@
 import useTaskActions from "@/hooks/use-task-actions";
 import type { Task } from "@/schemas/taskSchema";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardAction, CardHeader, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { useTransition } from "react";
 import { toast } from "sonner";
@@ -48,10 +42,12 @@ const ItemTask = ({ task }: Props) => {
   };
 
   return (
-    <Card className={cn(
-      "border border-border bg-card hover:shadow-md transition-all duration-200",
-      task.completed && "bg-muted/30"
-    )}>
+    <Card
+      className={cn(
+        "border border-border bg-card hover:shadow-md transition-all duration-200",
+        task.completed && "bg-muted/30"
+      )}
+    >
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-3 flex-1">
@@ -60,7 +56,9 @@ const ItemTask = ({ task }: Props) => {
               disabled={isPending}
               className={cn(
                 "mt-1 transition-colors hover:scale-110 transform",
-                task.completed ? "text-green-600" : "text-muted-foreground hover:text-primary"
+                task.completed
+                  ? "text-green-600"
+                  : "text-muted-foreground hover:text-primary"
               )}
             >
               {task.completed ? (
@@ -81,10 +79,12 @@ const ItemTask = ({ task }: Props) => {
               {task.description && (
                 <div className="flex items-start gap-2 mt-2">
                   <FileText className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
-                  <p className={cn(
-                    "text-sm text-muted-foreground",
-                    task.completed && "line-through"
-                  )}>
+                  <p
+                    className={cn(
+                      "text-sm text-muted-foreground",
+                      task.completed && "line-through"
+                    )}
+                  >
                     {task.description}
                   </p>
                 </div>

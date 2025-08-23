@@ -3,7 +3,7 @@ import { useUser } from "reactfire";
 import FriendEmail from "./FriendEmail";
 import { cn } from "@/lib/utils";
 import { Suspense } from "react";
-import { Check, CheckCheck, Clock, User } from "lucide-react";
+import { CheckCheck, Clock, User } from "lucide-react";
 
 interface Props {
   message: Messages;
