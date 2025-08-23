@@ -5,8 +5,6 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  CardFooter,
-  CardAction,
 } from "@/components/ui/card";
 
 //import form shadCn
