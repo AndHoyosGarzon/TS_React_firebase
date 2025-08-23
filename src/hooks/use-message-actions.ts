@@ -19,11 +19,11 @@ export const useMessageActions = (roomId: string) => {
 
   //2- hacemos la referencia  primero a la collecion que almacena los mensajes y se llama "rooms"
   //ahora como tercer parametro le pasamos el ID de la room
-  //y como tercer parametro le pasamos el nombre de la subcoleccion
+  //y como cuarto parametro le pasamos el nombre de la subcoleccion
   const messagesRef = collection(db, "rooms", roomId, "messages");
 
   //3- ahora hacemos la query, y le decimos que lo ordene por linea de tiempo de forma ascendente
-  const messagesQuery = query(messagesRef); //, orderBy("timestamp", "desc")
+  const messagesQuery = query(messagesRef, orderBy("timeStamp", "asc")); //, orderBy("timestamp", "desc")
 
   //4- ahora extraemos la data que sale de la query === GET
   const { data: messages } = useFirestoreCollectionData(messagesQuery, {
